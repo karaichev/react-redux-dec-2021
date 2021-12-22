@@ -2,6 +2,10 @@ import { createStore } from 'redux';
 
 const initialState = 0;
 
+const inc = () => ({ type: 'INC' });
+const dec = () => ({ type: 'DEC' });
+const rand = (payload) => ({ type: 'RAND', payload });
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INC':
@@ -20,13 +24,13 @@ const store = createStore(reducer);
 document
   .getElementById('inc')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'INC' });
+    store.dispatch(inc());
   });
 
 document
   .getElementById('dec')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'DEC' });
+    store.dispatch(dec());
   });
 
 document
@@ -34,7 +38,7 @@ document
   .addEventListener('click', () => {
     const payload = Math.floor(Math.random() * 10);
 
-    store.dispatch({ type: 'RAND', payload });
+    store.dispatch(rand(payload));
   });
 
 const renew = () => {
