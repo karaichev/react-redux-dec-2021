@@ -14,9 +14,9 @@ const Counter = ({ value, inc, dec, rand }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ counter }) => {
   return {
-    value: state,
+    value: counter,
   }
 }
 
